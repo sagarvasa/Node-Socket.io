@@ -1,12 +1,34 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Chat Application</title>
-    </head>
 
-    <body>
-        <div class = "container">
-            <h2 class="text-center">Can not find <%= url %></h2>
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Sagar Vasa">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node-Socket.io</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <%- include ('partials/header.ejs') %>
+
+    <div class="not-found-w container">
+        <div class="content_w">
+            <div class="content"><span class="heading">We cannot find the page you are looking for.
+                    <p class="heading-desc">Either way, go back or be sure to check the url, your spelling and try
+                        again.</p>
+            </div><a class="button" href="/">Go back to rooms</a>
         </div>
-    </body>
+        <div class="image_w">
+            <img alt="Page Not Found" src="/images/404.png">
+        </div>
+    </div>
+
+    <%- include ('partials/footer.ejs') %>
+
+</body>
+
+
+
 </html>

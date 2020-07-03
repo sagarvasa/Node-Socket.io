@@ -3,10 +3,13 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var app = express();
 var uuid = require("shortid");
+var flash = require("connect-flash");
+var session = require('express-session');
 var port = process.env.PORT || 3000;
 
 const logger = require("./server/utility/logger");
 const constants = require("./server/utility/constants");
+const passport = require("./server/core/auth/index")
 
 let connection;
 
@@ -23,6 +26,15 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static('public'));
+
+app.use(session({
+    saveUninitialized: false,
+    resave: false,
+    secret: constants.secret_key
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
 
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");

@@ -1,0 +1,71 @@
+<header class="header-wrapper">
+    <!-- Header container section: starts -->
+    <div class="header-container container">
+        <a class="logo-wrapper" href="/">
+            <img alt="Node-Socket" src="/images/Node.svg">
+        </a>
+        <div class="hamburger-icon">
+            <svg width="16" height="16" viewBox="0 0 16 16">
+                <rect width="16" height="3.04762" rx="1.52381" fill="#FFF"></rect>
+                <rect y="6.09521" width="16" height="3.04762" rx="1.52381" fill="#FFF"></rect>
+                <rect y="12.1904" width="16" height="3.04762" rx="1.52381" fill="#FFF"></rect>
+            </svg>
+        </div>
+    </div>
+    <!-- Header container section: ends -->
+
+    <!-- Sidebar container section: starts-->
+    <div class="side-container">
+        <div class="side-wrapper"></div>
+        <div class="side-content">
+            <div class="header-wrapper">
+                <div class="icon-close">
+                    <svg width="16" height="16" fill="none" viewBox="0 0 20 20">
+                        <path fill="#000"
+                            d="M19.442 3.253L12.692 10l6.75 6.747c.357.357.558.842.558 1.347 0 .506-.2.99-.558 1.348-.358.357-.842.558-1.348.558-.505 0-.99-.2-1.347-.558L10 12.692l-6.747 6.75c-.357.357-.842.558-1.347.558-.506 0-.99-.2-1.348-.558C.201 19.084 0 18.6 0 18.094c0-.505.2-.99.558-1.347L7.308 10 .557 3.253C.201 2.896 0 2.411 0 1.906 0 1.4.2.916.558.558.916.201 1.4 0 1.906 0c.505 0 .99.2 1.347.558L10 7.308l6.747-6.75C17.104.201 17.589 0 18.094 0c.506 0 .99.2 1.348.558.357.358.558.842.558 1.348 0 .505-.2.99-.558 1.347z">
+                        </path>
+                    </svg>
+                </div>
+            </div>
+            <ul class="list-wrapper">
+                <li class="list">
+                    <a href="https://nodejs.org/docs/latest-v12.x/api/" target="_blank" class="links">
+                        <span class="link-text">Node.js v12 API doc</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="https://socket.io/get-started/chat/" target="_blank" class="links">
+                        <span class="link-text">Get started with Socket.io</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="https://expressjs.com/" target="_blank" class="links">
+                        <span class="link-text">Express.js Framework</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="https://developer.mongodb.com/" target="_blank" class="links">
+                        <span class="link-text">Learn MongoDB</span>
+                    </a>
+                </li>
+                <li class="list">
+                    <a href="http://www.passportjs.org/docs/downloads/html/" target="_blank" class="links">
+                        <span class="link-text">Passport.js Middleware </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- Sidebar container section: ends -->
+
+    <!-- scripts starts-->
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+    <script>
+        $(".hamburger-icon").click(function () {
+            $(".side-container").show()
+        })
+        $(".icon-close").click(function() {
+            $(".side-container").hide()
+        })
+    </script>
+</header>

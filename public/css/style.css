@@ -1,0 +1,307 @@
+article, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+header {
+    margin: 0;
+    padding: 0;
+}
+
+.header-wrapper, .footer-wrapper {
+    align-items: center;
+    background-color: #a98a62;
+}
+
+.header-wrapper .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 13px;
+    padding-bottom: 13px;
+}
+
+.footer-wrapper .footer-container {
+    bottom: 0;
+    height: 60px;
+    line-height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 13px;
+}
+
+.hamburger-icon {
+    cursor: pointer;
+}
+
+.container, .chat-container {
+    padding-left: 12%;
+    padding-right: 12%;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.side-container {
+    display: none;
+}
+
+.side-container .side-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.6);
+    cursor: pointer;
+    z-index: 1;
+}
+
+.side-container .side-content {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #a98a62;
+    width: 20%;
+    z-index: 1;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 20px;
+}
+
+.side-container .header-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.side-container .list-wrapper {
+    margin-top: 15px;
+}
+
+.side-container .links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    padding: 20px 0;
+    display: inline-block;
+    font-size: 20px;
+    letter-spacing: .01px;
+    color: #FFF;
+    font-weight: 500;
+    width: 100%;
+    line-height: 1;
+}
+
+.side-container .icon-close {
+    cursor: pointer;
+    text-align: right;
+}
+
+.not-found-w {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+    background-color: papayawhip;
+    height: 620px;
+}
+
+.login-w , .rooms-w{
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+    background-color: papayawhip;
+    height: 600px;
+}
+
+.rooms-extended-h {
+    min-height: 475px;
+    height: auto;
+}
+
+.not-found-w .button , .rooms-w .button{
+    border-radius: 20px;
+    background-color :rgba(0,0,0,0.87);
+    color: #fff;
+    text-decoration: none;
+    padding: 15px 30px;
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor : pointer;
+}
+
+.login-w  .button {
+    border-radius: 20px;
+    background-color :rgba(0,0,0,0.87);
+    color: #fff;
+    text-decoration: none;
+    padding: 15px 30px;
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    width: 100%;
+    cursor : pointer;
+
+}
+
+.not-found-w .heading {
+    font-size: 40px;
+    line-height: 1;
+    color: rgba(0,0,0,0.87);
+    display: inline-block;
+}
+
+.not-found-w .heading-desc {
+    font-size: 20px;
+    color: rgba(0,0,0,0.87);
+    display: inline-block;
+}
+
+.not-found-w .image_w {
+    min-height: 350px;
+    min-width: 350px;
+}
+
+.not-found-w img {
+    width: 100%
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem
+}
+
+.text-center {
+    text-align: center;
+}
+
+.login-content {
+    margin-bottom: 1rem;
+    font-size: 1.75rem;
+    font-weight: 400;
+}
+
+.rooms-content {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
+.chat-room-title {
+    font-size: 1.25rem !important;
+    font-weight: 400;
+}
+
+.rooms-subcontent {
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.form-control {
+    display: block;
+    width: 90%;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.form-label-group {
+    margin-bottom: 10px;
+    width: 100%
+}
+
+.form-login, .form-signup {
+    height: 420px;
+    background: #e0c9ac;
+    padding: 1rem;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: .5rem;
+    padding-top: 0.2rem;
+    padding-left: 0.2rem
+}
+
+input[type=checkbox], input[type=radio] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.button-faded {
+    opacity: 0.65;
+    cursor : pointer;
+}
+
+.create-room-btns , .chat-room-btns{
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btns-48 {
+    width: 48%
+}
+
+.btns-100 {
+    width: 100%;
+}
+
+.logout , .rooms-route {
+    text-decoration: none;
+    color: white;
+}
+
+
+@media (max-width: 919px) {
+    .container {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+    .side-container .side-content {
+        left: 0;
+        width: auto;
+    }
+    .not-found-w {
+        flex-direction: column-reverse;
+        padding-top: 5px;
+        padding-bottom: 30px;
+        background-color: papayawhip;
+    }
+
+    .not-found-w .content_w {
+        text-align: center;
+        margin-top: 25px;
+    }
+
+    .not-found-w .heading {
+        font-size: 20px;
+    }
+    
+    .not-found-w .heading-desc {
+        font-size: 15px;
+    }
+
+    .login-w {
+        height: auto;
+        min-height: 520px;
+    }
+}
+    

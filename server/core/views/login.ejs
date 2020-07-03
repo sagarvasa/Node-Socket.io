@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Sagar Vasa">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node-Socket.io</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+
+    <%- include ('partials/header.ejs') %>
+
+    <div class="login-w container">
+
+        <form class="form-login" method="post" action="/login">
+            <div class="text-center mb-4">
+                <h1 class="login-content">Please Login to get started</h1>
+            </div>
+
+            <div class="form-label-group">
+                <input type="text" id="username" name="username" class="form-control" placeholder="Enter Your Username" required="true" autofocus>
+                <label for="username">Username</label>
+            </div>
+
+            <div class="form-label-group">
+                <input type="number" id="mobile" name="mobile" class="form-control" placeholder="Enter Your Mobile no" required="true" minlength="10" maxlength="10">
+                <label for="mobile">Mobile Number</label>
+            </div>
+
+            <div class="checkbox mb-3">
+                <label>
+                    <input type="checkbox" value="remember-me"> Remember me
+                </label>
+            </div>
+
+            <div class="form-label-group">
+                <button class="button" type="submit">Login</button>
+            </div>
+            
+            <p class="message" id="onSignup">Not registered? <a href="#">Create an account</a></p>
+            
+        </form>
+
+        <form class="form-signup" method="post" action="/register" style="display: none;">
+            <div class="text-center mb-4">
+                <h1 class="login-content">Register to Node-Socket Chat Application</h1>
+            </div>
+
+            <div class="form-label-group">
+                <input type="text" id="username_r" name="username" class="form-control" placeholder="Enter Username" required="true" autofocus>
+                <label for="username">Username</label>
+            </div>
+
+            <div class="form-label-group">
+                <input type="number" id="mobile_r" name="mobile" class="form-control" placeholder="Enter Your Mobile no" required="true" minlength="10" maxlength="10">
+                <label for="mobile">Mobile Number</label>
+            </div>
+
+            <div class="form-label-group">
+                <button class="button" type="submit">Register</button>
+            </div>
+            
+            <p class="message" id="onLogin">Already registered? <a href="#">Login</a></p>
+        </form>
+
+        
+
+    </div>
+
+    <%- include ('partials/footer.ejs') %>
+
+    <script>
+        var e = "<%= error %>";
+        var s = "<%= success %>";
+
+        if(e != null && e != undefined && e != "") {
+            alert(e)
+        } else if(s != null && s != undefined && s != "") {
+            alert(s)
+        }
+
+        $("#onSignup").click(function() {
+            $(".form-signup").show();
+            $(".form-login").hide();
+        })
+
+        $("#onLogin").click(function() {
+            $(".form-signup").hide();
+            $(".form-login").show();
+        })
+    </script>
+
+
+</body>
+
+</html>

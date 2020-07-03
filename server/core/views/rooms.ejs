@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Sagar Vasa">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node-Socket.io</title>
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <%- include ('partials/header.ejs') %>
+
+    <div class="rooms-w container">
+
+        <div class="form-login rooms-extended-h">
+            <div class="text-center mb-4">
+                <h3 class="rooms-content">Welcome to Node-Socket Chat Application</h3>
+                <h5 class="rooms-subcontent button button-faded" id="all-rooms">Click here to get current active rooms
+                    list</h5>
+            </div>
+
+            <div id="active-rooms" class="side-container" style="display: none;">
+                <div class="side-wrapper"></div>
+                <div class="side-content" id="active-rooms-content-id">
+                    <div class="header-wrapper">
+                        <div class="icon-close">
+                            <svg width="16" height="16" fill="none" viewBox="0 0 20 20">
+                                <path fill="#000"
+                                    d="M19.442 3.253L12.692 10l6.75 6.747c.357.357.558.842.558 1.347 0 .506-.2.99-.558 1.348-.358.357-.842.558-1.348.558-.505 0-.99-.2-1.347-.558L10 12.692l-6.747 6.75c-.357.357-.842.558-1.347.558-.506 0-.99-.2-1.348-.558C.201 19.084 0 18.6 0 18.094c0-.505.2-.99.558-1.347L7.308 10 .557 3.253C.201 2.896 0 2.411 0 1.906 0 1.4.2.916.558.558.916.201 1.4 0 1.906 0c.505 0 .99.2 1.347.558L10 7.308l6.747-6.75C17.104.201 17.589 0 18.094 0c.506 0 .99.2 1.348.558.357.358.558.842.558 1.348 0 .505-.2.99-.558 1.347z">
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+                    <ul class="list-wrapper">
+                        <% if(rooms.length > 0) { %>
+                        <% rooms.forEach(function(room) { %>
+                            <li class="list">
+                                <a href="/chat/<%= room.id %>" class="links">
+                                    <span class="link-text"><%= room.title %></span>
+                                </a>
+                            </li>
+                        <% }); %>
+                        <% } else { %>
+                            <h3 class="message">Hurray!! You are the first one to join the league.</h3>
+                            <h5>Please create your first room and invite your friend. Click on below link</h5>
+                            <a href="/rooms?first=true">Create Room</a>
+                        <% } %>
+                        
+                    </ul>
+                </div>
+            </div>
+
+            <form>
+                <div class="form-label-group">
+                    <input type="text" id="room" name="room" class="form-control" placeholder="Create Your Own Room">
+                </div>
+
+                <div class="create-room-btns">
+                    <button class="button btns-48 button-faded">Create</button>
+                    <button class="button btns-48 button-faded">Reset</button>
+                </div>
+
+                <div class="form-label-group">
+                    <button class="button btns-100"><a class="logout" href="/logout">Logout</a></button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+    <%- include ('partials/footer.ejs') %>
+
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+    <script src="/js/rooms.js"></script>
+
+    <script>
+        $("#all-rooms").click(function () {
+            $("#active-rooms").show();
+        })
+        $(".icon-close").click(function () {
+            $(".side-container").hide();
+        })
+
+        var is_first_room = "<%= is_first %>";
+        if(is_first_room != null && is_first_room != undefined && is_first_room != "" && is_first_room == "true") {
+            $("#room").addClass("active")
+            $("#room").focus()
+        }
+    </script>
+
+</body>
+
+</html>
