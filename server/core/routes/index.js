@@ -30,11 +30,14 @@ const router = function (app) {
     
     //socket routes
     app.route("/rooms")
-        .get( controller.get_rooms)
+        .get(controller.check_auth, controller.get_rooms)
         .post(controller.insert_rooms_from_seeder);
     
     app.route("/rooms/:id")
-        .get( controller.get_room_by_id);
+        .get(controller.check_auth, controller.get_room_by_id);
+    
+    app.route("/users/search")
+        .get(controller.check_auth, controller.search_users);
 
 }
 

@@ -14,15 +14,17 @@
 
     <%- include ('partials/header.ejs') %>
 
+    <!-- Rooms Container Starts -->
     <div class="rooms-w container">
 
         <div class="form-login rooms-extended-h">
             <div class="text-center mb-4">
                 <h3 class="rooms-content">Welcome to Node-Socket Chat Application</h3>
-                <h5 class="rooms-subcontent button button-faded" id="all-rooms">Click here to get current active rooms
+                <h5 class="rooms-subcontent button button-faded" id="all-rooms">Click here to get current active room
                     list</h5>
             </div>
 
+            <!-- Sidebar for displaying rooms -->
             <div id="active-rooms" class="side-container" style="display: none;">
                 <div class="side-wrapper"></div>
                 <div class="side-content" id="active-rooms-content-id">
@@ -39,7 +41,7 @@
                         <% if(rooms.length > 0) { %>
                         <% rooms.forEach(function(room) { %>
                             <li class="list">
-                                <a href="/chat/<%= room.id %>" class="links">
+                                <a href="/rooms/<%= room.id %>" class="links">
                                     <span class="link-text"><%= room.title %></span>
                                 </a>
                             </li>
@@ -54,14 +56,15 @@
                 </div>
             </div>
 
-            <form>
+            <!-- Create/ Reset Rooms Functionality-->
+            <form id="rooms-form">
                 <div class="form-label-group">
-                    <input type="text" id="room" name="room" class="form-control" placeholder="Create Your Own Room">
+                    <input type="text" id="room" name="room" class="form-control" placeholder="Create Your Own Room" maxlength="20"  minlength="3">
                 </div>
 
                 <div class="create-room-btns">
-                    <button class="button btns-48 button-faded">Create</button>
-                    <button class="button btns-48 button-faded">Reset</button>
+                    <button class="button btns-48 button-faded create-room">Create</button>
+                    <button class="button btns-48 button-faded reset-room">Reset</button>
                 </div>
 
                 <div class="form-label-group">
@@ -73,10 +76,13 @@
         </div>
 
     </div>
+    <!-- Rooms Container Ends -->
 
     <%- include ('partials/footer.ejs') %>
 
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+    <!-- Script Section starts-->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
     <script src="/js/rooms.js"></script>
 
     <script>

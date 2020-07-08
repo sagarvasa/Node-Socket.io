@@ -12,11 +12,11 @@ passport.use(new local_strategy({
         if (err) { return done(err); }
 
         if (!user) {
-            return done(null, false, { message: 'User doesn\'t exist' });
+            return done(null, false, { message: 'User does not exist' });
         } else {
             let is_same_mobile = user.mobile === password ? true : false;
             if (!is_same_mobile) {
-                return done(null, false, { message: 'Mobile number doesn\'t match' })
+                return done(null, false, { message: 'Mobile number does not match' })
             }
             return done(null, user);
         }

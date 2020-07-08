@@ -14,8 +14,11 @@
 
     <%- include ('partials/header.ejs') %>
 
+    <!-- Login/Register Container Starts -->
+
     <div class="login-w container">
 
+        <!-- Login form section starts -->
         <form class="form-login" method="post" action="/login">
             <div class="text-center mb-4">
                 <h1 class="login-content">Please Login to get started</h1>
@@ -27,7 +30,7 @@
             </div>
 
             <div class="form-label-group">
-                <input type="number" id="mobile" name="mobile" class="form-control" placeholder="Enter Your Mobile no" required="true" minlength="10" maxlength="10">
+                <input type="text" id="mobile" name="mobile" class="form-control" placeholder="Enter Your Mobile no" required="true" pattern="[0-9]{10}" minlength="10" maxlength="10">
                 <label for="mobile">Mobile Number</label>
             </div>
 
@@ -44,7 +47,9 @@
             <p class="message" id="onSignup">Not registered? <a href="#">Create an account</a></p>
             
         </form>
+        <!-- Login form section ends -->
 
+        <!-- Register form section starts -->
         <form class="form-signup" method="post" action="/register" style="display: none;">
             <div class="text-center mb-4">
                 <h1 class="login-content">Register to Node-Socket Chat Application</h1>
@@ -56,8 +61,13 @@
             </div>
 
             <div class="form-label-group">
-                <input type="number" id="mobile_r" name="mobile" class="form-control" placeholder="Enter Your Mobile no" required="true" minlength="10" maxlength="10">
+                <input type="text" id="mobile_r" name="mobile" class="form-control" placeholder="Enter Your Mobile no" required="true" pattern="[0-9]{10}" minlength="10" maxlength="10">
                 <label for="mobile">Mobile Number</label>
+            </div>
+
+            <div class="form-label-group">
+                <input type="text" id="name_r" name="name" class="form-control" placeholder="Enter Your Name" required="true"  minlength="3" maxlength="10">
+                <label for="name">Profile Name</label>
             </div>
 
             <div class="form-label-group">
@@ -65,14 +75,16 @@
             </div>
             
             <p class="message" id="onLogin">Already registered? <a href="#">Login</a></p>
-        </form>
-
-        
+        </form>     
+        <!-- Register form section ends -->
 
     </div>
 
+    <!-- Login/Register Container Ends -->
+
     <%- include ('partials/footer.ejs') %>
 
+    <!-- Script section -->
     <script>
         var e = "<%= error %>";
         var s = "<%= success %>";

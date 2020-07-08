@@ -9,7 +9,8 @@ var port = process.env.PORT || 3000;
 
 const logger = require("./server/utility/logger");
 const constants = require("./server/utility/constants");
-const passport = require("./server/core/auth/index")
+const passport = require("./server/core/auth/index");
+const socket = require("./server/core/socket")(app);
 
 let connection;
 
@@ -70,7 +71,9 @@ app.use(function (req, res, next) {
 
 });
 
-app.listen(port, function () {
+
+// Listening on Socket to use socket.io library throughout the app
+socket.listen(port, function () {
     logger.info("server is up and running on port " + port);
 })
 
@@ -79,7 +82,7 @@ app.listen(port, function () {
 process.on('SIGINT', () => {
     if(connection) {
         connection.gracefulExit();
-        logger.info("SIGINT:: successfully closed mongo connection ");
+        logger.info("SIGINT:: successfully closed mongo connection");
         process.exit(0);
     } else {
         process.exit(0)

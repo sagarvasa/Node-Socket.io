@@ -227,8 +227,14 @@ header {
     width: 100%
 }
 
-.form-login, .form-signup {
+.form-login {
     height: 420px;
+    background: #e0c9ac;
+    padding: 1rem;
+}
+
+.form-signup {
+    height: 480px;
     background: #e0c9ac;
     padding: 1rem;
 }
@@ -301,7 +307,7 @@ input[type=checkbox], input[type=radio] {
 
     .login-w {
         height: auto;
-        min-height: 520px;
+        min-height: 550px;
     }
 }
     
