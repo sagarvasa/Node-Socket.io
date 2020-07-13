@@ -55,7 +55,7 @@ header {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0,0,0,.6);
+    background: rgba(0, 0, 0, .6);
     cursor: pointer;
     z-index: 1;
 }
@@ -112,7 +112,7 @@ header {
     height: 620px;
 }
 
-.login-w , .rooms-w{
+.login-w, .rooms-w {
     display: flex;
     justify-content: center;
     padding-top: 50px;
@@ -125,9 +125,9 @@ header {
     height: auto;
 }
 
-.not-found-w .button , .rooms-w .button{
+.not-found-w .button, .rooms-w .button {
     border-radius: 20px;
-    background-color :rgba(0,0,0,0.87);
+    background-color: rgba(0, 0, 0, 0.87);
     color: #fff;
     text-decoration: none;
     padding: 15px 30px;
@@ -135,12 +135,12 @@ header {
     margin-top: 20px;
     font-size: 16px;
     font-weight: 600;
-    cursor : pointer;
+    cursor: pointer;
 }
 
-.login-w  .button {
+.login-w .button {
     border-radius: 20px;
-    background-color :rgba(0,0,0,0.87);
+    background-color: rgba(0, 0, 0, 0.87);
     color: #fff;
     text-decoration: none;
     padding: 15px 30px;
@@ -149,20 +149,19 @@ header {
     font-size: 16px;
     font-weight: 600;
     width: 100%;
-    cursor : pointer;
-
+    cursor: pointer;
 }
 
 .not-found-w .heading {
     font-size: 40px;
     line-height: 1;
-    color: rgba(0,0,0,0.87);
+    color: rgba(0, 0, 0, 0.87);
     display: inline-block;
 }
 
 .not-found-w .heading-desc {
     font-size: 20px;
-    color: rgba(0,0,0,0.87);
+    color: rgba(0, 0, 0, 0.87);
     display: inline-block;
 }
 
@@ -219,7 +218,7 @@ header {
     background-clip: padding-box;
     border: 1px solid #ced4da;
     border-radius: .25rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 }
 
 .form-label-group {
@@ -253,10 +252,10 @@ input[type=checkbox], input[type=radio] {
 
 .button-faded {
     opacity: 0.65;
-    cursor : pointer;
+    cursor: pointer;
 }
 
-.create-room-btns , .chat-room-btns{
+.create-room-btns, .chat-room-btns {
     margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
@@ -270,11 +269,10 @@ input[type=checkbox], input[type=radio] {
     width: 100%;
 }
 
-.logout , .rooms-route {
+.logout, .rooms-route {
     text-decoration: none;
     color: white;
 }
-
 
 @media (max-width: 919px) {
     .container {
@@ -291,23 +289,18 @@ input[type=checkbox], input[type=radio] {
         padding-bottom: 30px;
         background-color: papayawhip;
     }
-
     .not-found-w .content_w {
         text-align: center;
         margin-top: 25px;
     }
-
     .not-found-w .heading {
         font-size: 20px;
     }
-    
     .not-found-w .heading-desc {
         font-size: 15px;
     }
-
     .login-w {
         height: auto;
         min-height: 550px;
     }
 }
-    

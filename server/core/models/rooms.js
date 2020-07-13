@@ -50,7 +50,7 @@ roomSchema.statics.getActiveUsersFromRoom = function (room, socket, username) {
         room.connections.forEach((connection) => {
             let id = connection.user_id;
 
-            if (connection.user_id === id) {
+            if (connection.user_id === username) {
                 counter++;
             }
 

@@ -1,52 +1,61 @@
-.card{
+.card {
     height: 500px;
     border-radius: 15px !important;
-    background-color: rgba(0,0,0,0.4) !important;
+    background-color: rgba(0, 0, 0, 0.4) !important;
 }
-.users_body{
-    padding:  0.75rem 0 !important;
+
+.users_body {
+    padding: 0.75rem 0 !important;
     overflow-y: auto;
     white-space: nowrap;
 }
-.msg_card_body{
+
+.msg_card_body {
     overflow-y: auto;
-}
-.card-header{
-    border-radius: 15px 15px 0 0 !important;
-    border-bottom: 0 !important;
-    background-color: rgba(0,0,0,0.4) !important;
-}
-.card-footer{
-    border-radius: 0 0 15px 15px !important;
-    border-top: 0 !important;
-    background-color: rgba(0,0,0,0.4) !important;
-}
-.container{
-    align-content: center;
-}
-.search{
-    border-radius: 15px 0 0 15px !important;
-    background-color: #e9ecef !important;
-    border:0 !important;
-}
-.search:focus{
-    box-shadow:none !important;
-    outline:0px !important;
-}
-.type_msg{
-    background-color: #e9ecef !important;
-    border:0 !important;
-    overflow-y: auto;
-}
-.type_msg:focus{
-    box-shadow:none !important;
-    outline:0px !important;
 }
 
-.send_btn{
+.card-header {
+    border-radius: 15px 15px 0 0 !important;
+    border-bottom: 0 !important;
+    background-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+.card-footer {
+    border-radius: 0 0 15px 15px !important;
+    border-top: 0 !important;
+    background-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+.container {
+    align-content: center;
+}
+
+.search {
+    border-radius: 15px 0 0 15px !important;
+    background-color: #e9ecef !important;
+    border: 0 !important;
+}
+
+.search:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+}
+
+.type_msg {
+    background-color: #e9ecef !important;
+    border: 0 !important;
+    overflow-y: auto;
+}
+
+.type_msg:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+}
+
+.send_btn {
     border-radius: 0 15px 15px 0 !important;
-    background-color: rgba(0,0,0,0.3) !important;
-    border:0 !important;
+    background-color: rgba(0, 0, 0, 0.3) !important;
+    border: 0 !important;
     color: white !important;
     cursor: pointer;
 }
@@ -54,46 +63,53 @@
 textarea {
     border-radius: 15px 0 0 15px !important;
 }
-.search_btn{
+
+.search_btn {
     border-radius: 0 15px 15px 0 !important;
-    border:0 !important;
+    border: 0 !important;
     cursor: pointer;
 }
-.users{
+
+.users {
     list-style: none;
     padding: 0;
 }
-.users li{
+
+.users li {
     width: 100% !important;
     padding: 5px 10px;
     margin-bottom: 15px !important;
 }
-.active{
-    background-color: rgba(0,0,0,0.3);
+
+.active {
+    background-color: rgba(0, 0, 0, 0.3);
 }
-.user_img{
+
+.user_img {
     height: 50px;
     width: 50px;
-    border:1.5px solid #f5f6fa;
-
+    border: 1.5px solid #f5f6fa;
 }
-.user_img_msg{
+
+.user_img_msg {
     height: 40px;
     width: 40px;
-    border:1.5px solid #f5f6fa;
-
+    border: 1.5px solid #f5f6fa;
 }
-.img_cont{
+
+.img_cont {
     position: relative;
     height: 50px;
     width: 50px;
 }
-.img_cont_msg{
+
+.img_cont_msg {
     height: 40px;
     width: 40px;
     display: "inline-block"
 }
-.online_icon{
+
+.online_icon {
     position: absolute;
     height: 12px;
     width: 12px;
@@ -104,33 +120,39 @@ textarea {
     border: 1.5px solid white;
 }
 
-.offline{
+.offline {
     background-color: #c23616 !important;
 }
-.user_info{
+
+.user_info {
     margin-top: auto;
     margin-bottom: auto;
     margin-left: 15px;
 }
-.user_info span{
+
+.user_info span {
     font-size: 15px;
     color: white;
 }
-.user_info p{
+
+.user_info p {
     font-size: 10px;
-    color: rgba(255,255,255,0.6);
+    color: rgba(255, 255, 255, 0.6);
 }
-.control{
+
+.control {
     margin-left: 50px;
     margin-top: 5px;
 }
-.room-control span{
+
+.room-control span {
     color: white;
     font-size: 20px;
     cursor: pointer;
     margin-right: 20px;
 }
-.msg_cotainer{
+
+.msg_cotainer {
     margin-top: auto;
     margin-bottom: auto;
     margin-left: 10px;
@@ -140,7 +162,8 @@ textarea {
     position: relative;
     min-width: 220px;
 }
-.msg_cotainer_send{
+
+.msg_cotainer_send {
     margin-top: auto;
     margin-bottom: auto;
     margin-right: 10px;
@@ -150,21 +173,24 @@ textarea {
     position: relative;
     min-width: 220px;
 }
-.msg_time{
+
+.msg_time {
     position: absolute;
     left: 10px;
     bottom: -17px;
-    color: rgba(255,255,255,0.6);
+    color: rgba(255, 255, 255, 0.6);
     font-size: 12px;
 }
-.msg_time_send{
+
+.msg_time_send {
     position: absolute;
-    right:10px;
+    right: 10px;
     bottom: -17px;
-    color: rgba(255,255,255,0.6);
+    color: rgba(255, 255, 255, 0.6);
     font-size: 12px;
 }
-.msg_head{
+
+.msg_head {
     position: relative;
 }
 
@@ -186,7 +212,7 @@ textarea {
     display: inline-block;
     border-bottom: 1px dotted #FFF;
 }
-  
+
 .tooltip_icon .tooltiptext_icon {
     display: none;
     background-color: #FFF;
@@ -197,10 +223,11 @@ textarea {
     position: absolute;
     z-index: 1;
 }
-  
+
 .tooltip_icon:hover .tooltiptext_icon {
     display: block;
 }
+
 /* #action_menu_btn{
     position: absolute;
     right: 10px;
@@ -238,15 +265,15 @@ textarea {
     cursor: pointer;
     background-color: rgba(0,0,0,0.2);
 } */
-@media(max-width: 576px){
-    .users_card{
+
+@media(max-width: 576px) {
+    .users_card {
         margin-bottom: 20px !important;
     }
-
     .msg-card {
         margin-bottom: 20px !important;
     }
-    .img_cont_msg{
+    .img_cont_msg {
         display: none;
     }
 }
