@@ -19,6 +19,8 @@ const rooms = function (io) {
                     let room_model = new roomsModel({ title: room_name });
                     let new_room = await room_model.save();
 
+                    socket.emit("create-room-success", {message: "Room created successfully! Please enter into the room by clicking on link from active room list"})
+
                     // Sending data to all connected socket within namespace
                     io.of(NAME_SPACE).emit('update_rooms_list', new_room);
                     logger.info("Create_room:: new room:: " + JSON.stringify(new_room));

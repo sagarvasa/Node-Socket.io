@@ -13,7 +13,7 @@ const chat = function (io) {
             try {
                 let room = await roomsModel.findById(id);
                 if (!room) {
-                    logger.error("join_room:: room doesn't exists::");
+                    logger.error("join_room:: room doesn't exists");
                     socket.emit("chat_err", { message: "Room doesn't exists" });
                 } else {
                     let new_room = await roomsModel.addUserToRoom(room, socket, username);
@@ -21,7 +21,9 @@ const chat = function (io) {
                     let { users, counter } = await roomsModel.getActiveUsersFromRoom(new_room, socket, username);
                     let users_obj = await usersModel.getUserDetailByUsernames(users);
                     logger.info("Chat:: join_room event:: users :: " + JSON.stringify(users_obj));
-                    socket.emit('update_users_list', users_obj);
+                    let appended_user_obj = users_obj.filter((user) => user.username === username);
+                    socket.broadcast.to(new_room._id).emit('update_users_list', appended_user_obj, 1)
+                    socket.emit('update_users_list', users_obj, 0);
                 }
             } catch (err) {
                 logger.error("join_room:: Error:: " + err.message);
@@ -38,9 +40,12 @@ const chat = function (io) {
             logger.info("Chat:: disconnect event");
             try {
                 let rooms = await roomsModel.find();
-                let room = await roomsModel.removeUserFromRooms(rooms, socket, (err, room) => {
+                roomsModel.removeUserFromRooms(rooms, socket, async (err, room) => {
                     logger.info("Chat:: successfully removed connection from db");
                     socket.leave(room._id);
+                    let { users, counter } = await roomsModel.getActiveUsersFromRoom(room, socket, "");
+                    let users_obj = await usersModel.getUserDetailByUsernames(users);
+                    socket.in(room._id).emit("remove_user", users_obj, 0)
                 });
                 
             } catch (err) {

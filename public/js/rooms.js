@@ -35,6 +35,10 @@ function room_socket_handler() {
             }
         })
 
+        socket.on("create-room-success", function(obj) {
+            alert(obj.message)
+        }) 
+
         socket.on("update_rooms_list", function (new_room) {
 
             let html = `<li class="list">

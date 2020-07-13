@@ -110,7 +110,8 @@
                                 <p class="chat-room-users"></p>
                             </div>
                             <div class="room-control">
-                                <span class="tooltip_icon logout_btn"><a href="/logout"><i class="fa fa-power-off"></i></a>
+                                <span class="tooltip_icon logout_btn"><a href="/logout"><i
+                                            class="fa fa-power-off"></i></a>
                                     <p class="tooltiptext_icon">Logout</p>
                                 </span>
                                 <span class="tooltip_icon"><a href="/rooms"><i class="fa fa-arrow-right"></i></a>
@@ -169,6 +170,12 @@
                 e.preventDefault();
                 search_users($(".search").val(), "<%= room.id %>");
             })
+
+            $('#type_msg_id').keypress(function (e) {
+                if (e.keyCode == 13) {
+                    $('.send_btn').click();
+                }
+            });
         })
     </script>
 

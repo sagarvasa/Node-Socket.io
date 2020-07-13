@@ -1,7 +1,7 @@
 function chat_room_socket_handler(room_id, username) {
 
     var socket = io('/rooms/id', { transports: ['websocket'] });
-    socket.on("connect", function () {
+    socket.once("connect", function () {
         console.log("Chat Room Joined for id:: " + room_id + " by User:: " + username);
 
         socket.emit('join_room', room_id, username);
@@ -26,18 +26,23 @@ function chat_room_socket_handler(room_id, username) {
             socket.emit("logout", room_id);
         });*/
 
-        socket.on("update_users_list", function (users) {
-            $(".chat-room-users").text("No of users: " + users.length);
-            handle_users_list(users, 0);
+        socket.on("update_users_list", function (users, is_appended) {
+            if (!is_appended) {
+                $(".chat-room-users").text("No of users: " + users.length);
+            }
+            handle_users_list(users, 0, is_appended, 1);
         })
 
         socket.on('add_msg', function (message) {
             handle_msg_text(message, 0);
         });
 
-        /*socket.on("remove_user", function () {
-
-        })*/
+        socket.on("remove_user", function (users, is_appended) {
+            if (!is_appended) {
+                $(".chat-room-users").text("No of users: " + users.length);
+            }
+            handle_users_list(users, 0, is_appended, -1);
+        })
 
         socket.on("chat_err", function (obj) {
             alert(obj.message);
@@ -56,7 +61,7 @@ function handle_msg_text(msg_obj, is_sender) {
             </div>
             <div class="msg_cotainer">
             ${msg_obj.message}
-                <span class="msg_time">Me: ${new Date(msg_obj.date).getHours() + ":" + new Date(msg_obj.date).getMinutes() }</span>
+                <span class="msg_time">Me: ${new Date(msg_obj.date).getHours() + ":" + new Date(msg_obj.date).getMinutes()}</span>
             </div>
         </div>`
         $(".msg_card_body").append(html).slideDown(200);
@@ -77,18 +82,22 @@ function handle_msg_text(msg_obj, is_sender) {
 
 }
 
-function handle_users_list(users, is_search) {
+function handle_users_list(users, is_search, is_appended, is_add) {
     let html = '';
+    let user_len = 0;
     users.forEach((user, index) => {
+        user_len++;
         let user_image = user.image || "/images/user-icon.jpeg"
         let status_class = "online";
+        let active_class = "active"
 
         // adding offline class randomly
-        if (index % 3 === 0 && index != 0) {
-            status_class = "offline";
+        if (index % 3 != 0) {
+            //status_class = "offline";
+            active_class = ""
         }
         html += `
-        <li class="${index === 0 ? "active" : ""}">
+        <li class="${active_class}">
             <div class="d-flex bd-highlight">
                 <div class="img_cont">
                     <img src="${user_image}" class="rounded-circle user_img">
@@ -102,21 +111,28 @@ function handle_users_list(users, is_search) {
         </li>`
     })
 
-    if (html === '') {
+    if (html === '' && !is_appended) {
         $(".users_card .users_body ul").html('')
         return;
     }
 
-    if(is_search === 0) {
-        if ($(".users_card .users_body ul li").length > 0) {
+
+    if (is_search === 0) {
+        if (is_appended) {
+            if (is_add) {
+                user_len = user_len + parseInt($(".chat-room-users").text().split("users: ")[1])
+            } else {
+                user_len = Math.min(0, user_len - parseInt($(".chat-room-users").text().split("users: ")[1]))
+            }
             $(".users_card .users_body ul").append(html);
+            $(".chat-room-users").text("No of users: " + user_len);
         } else {
             $(".users_card .users_body ul").html('').html(html);
         }
     } else {
         $(".users_card .users_body ul").html('').html(html);
     }
-    
+
 }
 
 function search_users(value, room_id) {
@@ -125,10 +141,10 @@ function search_users(value, room_id) {
         contentType: "application/json; charset=utf-8",
         method: "GET",
         url: url_path,
-        success: function(result){
+        success: function (result) {
             handle_users_list(result.users, 1)
         },
-        error: function(err) {
+        error: function (err) {
             alert(err.message);
         }
     });
