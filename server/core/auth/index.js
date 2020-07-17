@@ -12,7 +12,7 @@ passport.use(new local_strategy({
         if (err) { return done(err); }
 
         if (!user) {
-            return done(null, false, { message: 'User does not exist' });
+            return done(null, false, { message: 'User does not exist. Please register yourself' });
         } else {
             let is_same_mobile = user.mobile === password ? true : false;
             if (!is_same_mobile) {

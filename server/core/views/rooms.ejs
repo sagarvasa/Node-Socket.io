@@ -68,9 +68,7 @@
                     <button class="button btns-48 button-faded reset-room">Reset</button>
                 </div>
 
-                <div class="form-label-group">
-                    <button class="button btns-100"><a class="logout" href="/logout">Logout</a></button>
-                </div>
+                <button class="button btns-100 logout">Logout</button>
 
             </form>
 
@@ -92,6 +90,10 @@
         })
         $(".icon-close").click(function () {
             $(".side-container").hide();
+        })
+        $(".logout").click(function() {
+            window.location.href = "/logout"
+            return false
         })
 
         var is_first_room = "<%= is_first %>";

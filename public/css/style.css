@@ -29,9 +29,8 @@ header {
     height: 60px;
     line-height: 60px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding-top: 13px;
 }
 
 .hamburger-icon {
@@ -83,7 +82,7 @@ header {
     margin-top: 15px;
 }
 
-.side-container .links {
+.side-container .links , .footer-container .links{
     display: flex;
     align-items: center;
     justify-content: space-between;

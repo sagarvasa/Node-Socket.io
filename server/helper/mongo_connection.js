@@ -9,7 +9,8 @@ let options = {
     useUnifiedTopology: true,
     poolSize: db_config.pool_size,
     socketTimeoutMS: db_config.timeout,
-    useFindAndModify: false
+    useFindAndModify: false,
+    useCreateIndex: true
 }
 
 mongoose.connect(url, options).catch((err) => {
