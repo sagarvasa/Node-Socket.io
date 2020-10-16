@@ -23,6 +23,6 @@ A simple chat application using node, express, passport and socket.io
 5. Join any room, start chatting with room users
 
 # image
-![Login](/public/Images/login.jpg)
-![Register](/public/Images/register.jpg)
-![Chat Screen](/public/Images/chat-screen.jpg)
+![Login](/public/Images/login.png)
+![Register](/public/Images/register.png)
+![Chat Screen](/public/Images/chat-screen.png)
