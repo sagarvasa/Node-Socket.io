@@ -21,3 +21,6 @@ A simple chat application using node, express, passport and socket.io
 3. On Successful login, You will be redirect to Rooms page.
 4. You can create the new room and join that. Or you can join existing room by clicking list of active room
 5. Join any room, start chatting with room users
+
+# image
+![Collage](/public/images/collage.jpg)
